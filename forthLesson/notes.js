@@ -28,20 +28,6 @@ var addNote = (title, body) => {
         saveNotes(notes);
         return note;
     }
-    
-    // var isTitleUniq = true;
-    // notes.forEach(element => {
-    //     if (element.title === title) {
-    //         console.log(`ERROR: ${note.title} is already taken`);  
-    //         isTitleUniq = false;  
-    //     }
-    // })
-
-    // if (isTitleUniq) {
-    //     notes.push(note);
-    //     fs.writeFileSync('notes-data.json', JSON.stringify(notes));
-    // }
-
 }
 
 var getAll = () => {
@@ -49,7 +35,10 @@ var getAll = () => {
 }
 
 var getNote = (title) => {
-    console.log('Getting note', title);
+    var notes = fetchNotes();
+    var filteredNotes = notes.filter(note => note.title === title);
+
+    return filteredNotes[0];
 }
 
 var removeNote = (title) => {
@@ -67,10 +56,18 @@ var myGoal = () => {
     console.log('My goal is to work as a developer');
 }
 
+var logNote = (note) => {
+    debugger;
+    console.log('---');
+    console.log(`Title: ${note.title}`);
+    console.log(`Body: ${note.body}`);
+}
+
 module.exports = {
     addNote, 
     getAll,
     getNote,
     removeNote,
-    myGoal
+    myGoal,
+    logNote
 }
