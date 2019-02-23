@@ -6,6 +6,6 @@ person.age = 24;
 
 debugger;
 
-person.name = 'queen of coding';
+person.name = 'girl coder';
 
 console.log(person);
